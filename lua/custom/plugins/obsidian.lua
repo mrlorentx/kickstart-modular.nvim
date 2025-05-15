@@ -1,6 +1,4 @@
 local picker_name = 'telescope.nvim'
--- local picker_name = "mini.pick"
--- local picker_name = "fzf-lua"
 
 return {
   {
@@ -46,10 +44,10 @@ return {
   {
     'epwalsh/obsidian.nvim',
     ft = 'markdown',
-    -- event = {
-    --   "BufReadPre " .. vim.fn.resolve(vim.fn.expand "~/Obsidian/notes") .. "/*",
-    --   "BufNewFile " .. vim.fn.resolve(vim.fn.expand "~/Obsidian/notes") .. "/*",
-    -- },
+    event = {
+      'BufReadPre ' .. vim.fn.resolve(vim.fn.expand '~/Obsidian/notes') .. '/*',
+      'BufNewFile ' .. vim.fn.resolve(vim.fn.expand '~/Obsidian/notes') .. '/*',
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'headlines.nvim',
@@ -223,10 +221,6 @@ return {
         template = 'dailies.md',
       },
       notes_subdir = 'notes',
-      completion = {
-        nvim_cmp = true,
-        min_chars = 2,
-      },
       templates = {
         folder = '~/vaults/templates',
         date_format = '%Y-%m-%d',
