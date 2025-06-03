@@ -5,7 +5,7 @@ return {
   build = 'make',
   opts = {
     disable_tools = false,
-    provider = 'copilot',
+    provider = 'litellm',
     copilot = {
       endpoint = 'https://api.githubcopilot.com',
       model = 'claude-3.7-sonnet',
@@ -33,6 +33,12 @@ return {
         endpoint = 'https://litellm.a2d.tv/',
         api_key_name = 'LITELLM_API_KEY',
         model = 'gpt-4.1',
+      },
+      liteo3 = {
+        __inherited_from = 'openai',
+        endpoint = 'https://litellm.a2d.tv/',
+        api_key_name = 'LITELLM_API_KEY',
+        model = 'o3',
       },
     },
   },

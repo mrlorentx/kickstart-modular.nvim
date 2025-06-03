@@ -42,7 +42,7 @@ return {
     end,
   },
   {
-    'epwalsh/obsidian.nvim',
+    'obsidian-nvim/obsidian.nvim',
     ft = 'markdown',
     event = {
       'BufReadPre ' .. vim.fn.resolve(vim.fn.expand '~/Obsidian/notes') .. '/*',
