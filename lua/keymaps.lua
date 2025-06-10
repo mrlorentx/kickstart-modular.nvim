@@ -42,6 +42,9 @@ vim.keymap.set('n', '<leader>ww', vim.cmd.w, { noremap = true, silent = true, de
 vim.keymap.set('n', '<leader>wa', vim.cmd.wa, { noremap = true, silent = true, desc = 'Save All Buffers' })
 vim.keymap.set('n', '<leader>wq', vim.cmd.wq, { noremap = true, silent = true, desc = 'Save and Close Current Buffer' })
 
+-- Close buffer with less annoying commands
+vim.keymap.set('n', 'zz', vim.cmd.x, { noremap = true, silent = true, desc = 'Close Current Buffer' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

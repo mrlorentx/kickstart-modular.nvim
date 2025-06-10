@@ -218,6 +218,7 @@ return {
       },
       daily_notes = {
         default_tags = { 'daily-notes' },
+        workays_only = true,
         template = 'dailies.md',
       },
       notes_subdir = 'notes',
