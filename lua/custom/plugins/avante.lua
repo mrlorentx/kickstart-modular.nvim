@@ -4,42 +4,33 @@ return {
   version = false, -- Never set this value to "*"! Never!
   build = 'make',
   opts = {
-    disable_tools = false,
-    provider = 'litellm',
-    copilot = {
-      endpoint = 'https://api.githubcopilot.com',
-      model = 'claude-3.7-sonnet',
-      proxy = nil, -- [protocol://]host[:port] Use this proxy
-      allow_insecure = false, -- Allow insecure server connections
-      timeout = 30000, -- Timeout in milliseconds
-      temperature = 0,
-      max_tokens = 64000,
+    provider = 'copilot',
+    providers = {
+      llmproxy = {
+        __inherited_from = 'openai',
+        endpoint = 'https://llmproxy.a2d.tv/v1',
+        api_key_name = 'LLM_PROXY_API_KEY',
+        model = 'gpt-4.1',
+      },
+      morph = {
+        model = 'auto',
+      },
+
+      copilot = {
+        endpoint = 'https://api.githubcopilot.com',
+        model = 'claude-4.5-sonnet-preview',
+        proxy = nil, -- [protocol://]host[:port] Use this proxy
+        allow_insecure = false, -- Allow insecure server connections
+        timeout = 30000, -- Timeout in milliseconds
+      },
     },
     behaviour = {
       auto_suggestions = false,
+      enable_fastapply = true,
       enable_cursor_planning_mode = true,
       auto_suggestions_respect_ignore = true,
       enable_claude_text_editor_tool_mode = true,
       use_cwd_as_project_root = true,
-    },
-    -- openai = {
-    --   endpoint = 'https://litellm.a2d.tv/',
-    --   model = 'gpt-4.1',
-    --   api_key_name = 'LITELLM_API_KEY',
-    -- },
-    vendors = {
-      litellm = {
-        __inherited_from = 'openai',
-        endpoint = 'https://litellm.a2d.tv/',
-        api_key_name = 'LITELLM_API_KEY',
-        model = 'gpt-4.1',
-      },
-      liteo3 = {
-        __inherited_from = 'openai',
-        endpoint = 'https://litellm.a2d.tv/',
-        api_key_name = 'LITELLM_API_KEY',
-        model = 'o3',
-      },
     },
   },
   dependencies = {
